@@ -1,0 +1,30 @@
+<form [formGroup]="todosForm" >
+    <section class="todo_form_card">
+        <h1 class="todo_form_title">Editar Tarea</h1>
+        <div *ngFor="let todo of todosList()">
+            <mat-tab-group color="accent" *ngIf="todosList().length > 0; ">
+                
+                <mat-form-field color="accent" appearance="outline" class="todo_form_input">
+                    <mat-label>{{ todo?.title }}</mat-label>
+                    <input matInput formControlName="title" placeholder="{{ todo?.title }}"  />
+                </mat-form-field>
+
+                <mat-form-field color="accent" appearance="outline" class="todo_form_input">
+                    <mat-label>{{ todo?.description }}</mat-label>
+                    <textarea matInput formControlName="description" placeholder="{{ todo?.description }}"></textarea>
+                </mat-form-field>
+
+
+                <mat-label class="todo_form_input_date_tittle">Fecha de Inicio</mat-label>
+                <input matInput formControlName="date" type="date" color="accent" appearance="outline" class="todo_form_input_date" value="{{ todo?.description }}">
+                    
+            </mat-tab-group>   
+        </div>
+        <div class="todo_form_actions">
+            <button mat-raised-button class="todo_form_sucess_btn" type="submit">
+                Guardar
+            </button>
+            <button mat-raised-button color="warn" type="button" (click)="handleCloseModal()">Cancelar</button>
+        </div>
+    </section>
+</form>

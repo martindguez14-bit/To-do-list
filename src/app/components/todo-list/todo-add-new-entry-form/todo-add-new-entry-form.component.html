@@ -1,0 +1,25 @@
+<form [formGroup]="todosForm" (ngSubmit)="handleCreateNewTodo()">
+    <section class="todo_form_card">
+        <h1 class="todo_form_title">Agregar Tarea</h1>
+
+        <mat-form-field color="accent" appearance="outline" class="todo_form_input">
+            <mat-label>Titulo</mat-label>
+            <input matInput formControlName="title" placeholder="Enter title" />
+        </mat-form-field>
+
+        <mat-form-field color="accent" appearance="outline" class="todo_form_input">
+            <mat-label>Descripcion</mat-label>
+            <textarea matInput formControlName="description" placeholder="Enter description"></textarea>
+        </mat-form-field>
+
+        <mat-label class="todo_form_input_date_tittle">Fecha de Inicio</mat-label>
+        <input matInput formControlName="date" type="date" color="accent" appearance="outline" class="todo_form_input_date">
+        
+        <div class="todo_form_actions">
+            <button mat-raised-button class="todo_form_sucess_btn" type="submit">
+                Guardar
+            </button>
+            <button mat-raised-button color="warn" type="button" (click)="handleCloseModal()">Cancelar</button>
+        </div>
+    </section>
+</form>
